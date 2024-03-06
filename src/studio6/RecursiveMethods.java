@@ -39,7 +39,17 @@ public class RecursiveMethods {
 	}
 
 	
-
+	public static int[] helpReverse(int index, int[]array, int[]values) {
+		if (index<0) {
+			return values;	
+		}
+		else {
+			
+			values[index] = array[array.length-1-index];
+			return helpReverse(index-1, array, values);
+		}
+		
+	}
 	/**
 	 * This method uses recursion to create a reverse of the given array
 	 * 
@@ -47,6 +57,9 @@ public class RecursiveMethods {
 	 * @return an array with the same data as the input but it reverse order
 	 */
 	public static int[] toReversed(int[] array) {
+		
+		int[]reversed= new int[array.length];
+		helpReverse(array.length, array, reversed);
 		
 			// FIXME create a helper method that can recursively reverse the given array
 			return new int[0];
